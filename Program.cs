@@ -2,26 +2,31 @@
 
 class Program
 {
-   static void firstProgram() 
+   static void FirstProgram() 
    {
       Console.Write("Введите число: ");
       int number = Convert.ToInt32(Console.ReadLine());
 
       Console.Write("Введите показатель степени: ");
       int degree = Convert.ToInt32(Console.ReadLine());
-
-      double result = Math.Round(Math.Exp(degree * Math.Log(number)));
-
+      
+      int result = 1;
+      
+      for (int counter = 0; counter < degree; ++counter)
+        {
+            result *= number;
+        }
+      
       Console.WriteLine($"{number}^{degree} = {result}\n");
     }
 
-    static void secondProgram() 
+    static void SecondProgram() 
     {
       Console.Write("Введите число x: ");
-      string x_number = Console.ReadLine();
+      string numberX = Console.ReadLine();
 
-      char secondDigit = x_number[1];
-      string newNumber = x_number.Remove(1, 1) + secondDigit;
+      char secondDigit = numberX[1];
+      string newNumber = numberX.Remove(1, 1) + secondDigit;
 
       Console.WriteLine($"Число n: {newNumber}\n");
     }
@@ -29,18 +34,16 @@ class Program
     static void Main()
     {
       string choice;
-
       while (true) 
       {       
         Console.WriteLine("Введите номер команды:\n1. Запуск программы №1\n2. Запуск программы №2\n3. Выход");
         choice = Console.ReadLine();
-
           switch(choice) {
             case "1":
-              firstProgram();
+              FirstProgram();
               break;
             case "2":
-              secondProgram();
+              SecondProgram();
               break;
             case "3":
               Environment.Exit(0);
